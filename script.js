@@ -61,25 +61,38 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+// Add the list of movements to the div element with 'movements' class
+const displayMovements = function (movements) {
+  containerMovements.innerHTML = '';
 
-const displayMovement = function(movements) {
-containerMovements.innerHTML = '';
-
-  movements.forEach(function(mov, i){
+  movements.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
-    const html = 
-    `
+    const html = `
       <div class="movements__row">
-        <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
+        <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
         <div class="movements__value">${mov}</div>
       </div>
     `;
 
-    containerMovements.insertAdjacentHTML("afterbegin",html);
+    containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 };
-displayMovement(account1.movements);
+displayMovements(account1.movements);
+
+// Add 'username' prop to the account object, taking the first letter of the full name
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+createUsernames(accounts);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -94,4 +107,3 @@ displayMovement(account1.movements);
 // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
-
