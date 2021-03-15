@@ -5,61 +5,61 @@
 // BANKIST APP
 
 // Data
-const account1 = {
-  owner: 'Jonas Schmedtmann',
-  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
-  interestRate: 1.2, // %
-  pin: 1111,
-};
+// const account1 = {
+//   owner: 'Jonas Schmedtmann',
+//   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+//   interestRate: 1.2, // %
+//   pin: 1111,
+// };
 
-const account2 = {
-  owner: 'Jessica Davis',
-  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
-  interestRate: 1.5,
-  pin: 2222,
-};
+// const account2 = {
+//   owner: 'Jessica Davis',
+//   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+//   interestRate: 1.5,
+//   pin: 2222,
+// };
 
-const account3 = {
-  owner: 'Steven Thomas Williams',
-  movements: [200, -200, 340, -300, -20, 50, 400, -460],
-  interestRate: 0.7,
-  pin: 3333,
-};
+// const account3 = {
+//   owner: 'Steven Thomas Williams',
+//   movements: [200, -200, 340, -300, -20, 50, 400, -460],
+//   interestRate: 0.7,
+//   pin: 3333,
+// };
 
-const account4 = {
-  owner: 'Sarah Smith',
-  movements: [430, 1000, 700, 50, 90],
-  interestRate: 1,
-  pin: 4444,
-};
+// const account4 = {
+//   owner: 'Sarah Smith',
+//   movements: [430, 1000, 700, 50, 90],
+//   interestRate: 1,
+//   pin: 4444,
+// };
 
-const accounts = [account1, account2, account3, account4];
+// const accounts = [account1, account2, account3, account4];
 
-// Elements
-const labelWelcome = document.querySelector('.welcome');
-const labelDate = document.querySelector('.date');
-const labelBalance = document.querySelector('.balance__value');
-const labelSumIn = document.querySelector('.summary__value--in');
-const labelSumOut = document.querySelector('.summary__value--out');
-const labelSumInterest = document.querySelector('.summary__value--interest');
-const labelTimer = document.querySelector('.timer');
+// // Elements
+// const labelWelcome = document.querySelector('.welcome');
+// const labelDate = document.querySelector('.date');
+// const labelBalance = document.querySelector('.balance__value');
+// const labelSumIn = document.querySelector('.summary__value--in');
+// const labelSumOut = document.querySelector('.summary__value--out');
+// const labelSumInterest = document.querySelector('.summary__value--interest');
+// const labelTimer = document.querySelector('.timer');
 
-const containerApp = document.querySelector('.app');
-const containerMovements = document.querySelector('.movements');
+// const containerApp = document.querySelector('.app');
+// const containerMovements = document.querySelector('.movements');
 
-const btnLogin = document.querySelector('.login__btn');
-const btnTransfer = document.querySelector('.form__btn--transfer');
-const btnLoan = document.querySelector('.form__btn--loan');
-const btnClose = document.querySelector('.form__btn--close');
-const btnSort = document.querySelector('.btn--sort');
+// const btnLogin = document.querySelector('.login__btn');
+// const btnTransfer = document.querySelector('.form__btn--transfer');
+// const btnLoan = document.querySelector('.form__btn--loan');
+// const btnClose = document.querySelector('.form__btn--close');
+// const btnSort = document.querySelector('.btn--sort');
 
-const inputLoginUsername = document.querySelector('.login__input--user');
-const inputLoginPin = document.querySelector('.login__input--pin');
-const inputTransferTo = document.querySelector('.form__input--to');
-const inputTransferAmount = document.querySelector('.form__input--amount');
-const inputLoanAmount = document.querySelector('.form__input--loan-amount');
-const inputCloseUsername = document.querySelector('.form__input--user');
-const inputClosePin = document.querySelector('.form__input--pin');
+// const inputLoginUsername = document.querySelector('.login__input--user');
+// const inputLoginPin = document.querySelector('.login__input--pin');
+// const inputTransferTo = document.querySelector('.form__input--to');
+// const inputTransferAmount = document.querySelector('.form__input--amount');
+// const inputLoanAmount = document.querySelector('.form__input--loan-amount');
+// const inputCloseUsername = document.querySelector('.form__input--user');
+// const inputClosePin = document.querySelector('.form__input--pin');
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -171,27 +171,173 @@ const inputClosePin = document.querySelector('.form__input--pin');
 // checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-const eurToUsd = 1.1;
-// const movementsUSD = movements.map(function(mov){
-//   return mov * eurToUsd;
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const eurToUsd = 1.1;
+// // const movementsUSD = movements.map(function(mov){
+// //   return mov * eurToUsd;
+// // });
+// const movementsUSD = movements.map(mov => mov * eurToUsd);  // using arrow function
+// console.log(movements);
+// console.log(movementsUSD);
+
+// const movementsUSDfor = [];
+// for(const mov of movements) movementsUSDfor.push(mov * eurToUsd);
+// console.log(movementsUSDfor);
+
+
+// const movementsDescriptions = movements.map((mov, i, arr) => 
+
+//   `Movement ${i + 1} You ${mov > 0 ? 'deposit' : 'withdrew'} ${Math.abs(mov)}` // use ternary operator
+//   // if(mov > 0){
+//   //   return `Movement ${i + 1} you deposited ${mov}`;
+//   // }else {
+//   //   return `Movement ${i + 1} You withdrew ${Math.abs(mov)}`;
+//   // }
+// );
+// console.log(movementsDescriptions);
+
+// ****** FILTER *****
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const deposits = movements.filter(function(mov){
+//   return mov > 0;
 // });
-const movementsUSD = movements.map(mov => mov * eurToUsd);  // using arrow function
-console.log(movements);
-console.log(movementsUSD);
+// console.log(deposits);
 
-const movementsUSDfor = [];
-for(const mov of movements) movementsUSDfor.push(mov * eurToUsd);
-console.log(movementsUSDfor);
+// const withdrawals = movements.filter((mov) => {
+//   return mov < 0;
+// });
+// console.log(withdrawals);
+
+// ****** REDUCE ******
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// // accumulator -> SNOWBALL
+// const balance = movements.reduce(function(accumulator, currentValue, i, arr){
+//   console.log(`Iteration ${i}: ${accumulator}`);
+//   return accumulator + currentValue;
+// }, 0);
+// console.log(balance);
+// // REDUCE in for of loop representation, for loop requires additional declaration of variable
+// let balance2 = 0;
+// for(const mov of movements) balance2 += mov;
+// console.log(balance2);
+
+// // RECUDE - arrow function representation 
+// const balance3 = movements.reduce((acc, cur) => acc + cur, 0);
+// console.log(balance3);
+
+// ****** REDUCE ******
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// // accumulator -> SNOWBALL
+// const balance = movements.reduce(function(accumulator, currentValue, i, arr){
+//   console.log(`Iteration ${i}: ${accumulator}`);
+//   return accumulator + currentValue;
+// }, 0);
+// console.log(balance);
+// // REDUCE in for of loop representation, for loop requires additional declaration of variable
+// let balance2 = 0;
+// for(const mov of movements) balance2 += mov;
+// console.log(balance2);
+
+// RECUDE - arrow function representation 
+// const balance3 = movements.reduce((acc, cur) => acc + cur, 0);
+// console.log(balance3);
+// REDUCE - maximum value
+// const max = movements.reduce((acc, mov) => {
+//   if(acc > mov) return acc;
+//   else 
+//     return mov;
+// }, movements[0]);
+// console.log(max);
+// REDUCE - maximum value with ternary operator
+// const max = movements.reduce((acc, mov) => acc > mov ? acc : mov, movements[0]);
+// console.log(max);
 
 
-const movementsDescriptions = movements.map((mov, i, arr) => 
+// const calcAverageHumanAge = function(ages){
+//   const humanAges = ages.map(age => age <=2 ? 2 * age : 16 + age * 4);
+//   console.log(humanAges);
+//   const adults = humanAges.filter(age => age >= 18)
+//   console.log(`Adults dogs ${adults}`);
+  
+//   //const average = adults.reduce((acc, age) => acc + age,0) / adults.length;
+//   const average = adults.reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+//   console.log(`Average value ${average}`);
+// };
 
-  `Movement ${i + 1} You ${mov > 0 ? 'deposit' : 'withdrew'} ${Math.abs(mov)}` // use ternary operator
-  // if(mov > 0){
-  //   return `Movement ${i + 1} you deposited ${mov}`;
-  // }else {
-  //   return `Movement ${i + 1} You withdrew ${Math.abs(mov)}`;
-  // }
-);
-console.log(movementsDescriptions);
+// calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+
+// const movements =  [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// const eurToUsd = 1.1;
+// const totalDepositsUSD = movements
+//   .filter(mov => mov > 0)
+//   .map((mov, i, arr) => {
+//     // console.log(arr);
+//     return mov * eurToUsd;
+//   })
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(totalDepositsUSD);
+
+/* ******* Rewrite 'calcAverageHumanAge' function from the previous challenge, but this time as an arrow function, and using chaining! 
+*/
+// const calcAverageHumanAge = function(ages){
+//   const average = ages.map(age => age <=2 ? 2 * age : 16 + age * 4).
+//   filter(age => age >= 18)
+//   .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+//   console.log(`Average value ${average}`);
+// };
+// calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+// calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+
+/* ****** FIND method ****** */
+// const account1 = {
+//   owner: 'Jonas Schmedtmann',
+//   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+//   interestRate: 1.2, // %
+//   pin: 1111,
+// };
+
+// const account2 = {
+//   owner: 'Jessica Davis',
+//   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+//   interestRate: 1.5,
+//   pin: 2222,
+// };
+// const account22 = {
+//   owner: 'Jessica Davis',
+//   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+//   interestRate: 3,
+//   pin: 2222,
+// };
+
+// const account3 = {
+//   owner: 'Steven Thomas Williams',
+//   movements: [200, -200, 340, -300, -20, 50, 400, -460],
+//   interestRate: 0.7,
+//   pin: 3333,
+// };
+
+// const account4 = {
+//   owner: 'Sarah Smith',
+//   movements: [430, 1000, 700, 50, 90],
+//   interestRate: 1,
+//   pin: 4444,
+// };
+
+// const accounts = [account1, account2, account3, account4];
+
+// // const movements =  [200, 450, -400, 3000, -650, -130, 70, 1300];
+// // const firstWithdrawal = movements.find(mov => mov < 0);
+// // console.log(firstWithdrawal);
+
+// // const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+// // console.log(account);
+
+// // Find method through the "for of" loop
+// for(const acc of accounts){
+//   if(acc.owner === 'Jessica Davis'){
+//     const newAccount = acc;
+//     console.log(newAccount);
+//     break;
+//   }
+// }
