@@ -341,3 +341,124 @@
 //     break;
 //   }
 // }
+
+/* ***** SOME and EVERY array methods ***** */
+
+// const account4 = {
+//   owner: 'Sarah Smith',
+//   movements: [430, 1000, 700, 50, 90],
+//   interestRate: 1,
+//   pin: 4444,
+// };
+
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// // EQUALITY
+// console.log(movements.includes(-130));
+
+// // SOME: CONDITION
+// const anyDeposits = movements.some(mov => mov > 0);
+// console.log(anyDeposits);
+
+// // EVERY - return true if all the elements of array satisfy the condition
+// console.log(movements.every(mov => mov > 0));
+// console.log(account4.movements.every(mov => mov > 0));
+
+// // Separate callback
+// const deposit = mov => mov > 0;
+// console.log(movements.some(deposit));
+// console.log(movements.every(deposit));
+// console.log(movements.filter(deposit));
+
+/* ***** flat and flatMap methods ***** */
+
+// const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+// console.log(arr.flat());
+
+// const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+// console.log(arrDeep.flat(2));
+
+// Data
+// const account1 = {
+//   owner: 'Jonas Schmedtmann',
+//   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+//   interestRate: 1.2, // %
+//   pin: 1111,
+// };
+
+// const account2 = {
+//   owner: 'Jessica Davis',
+//   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+//   interestRate: 1.5,
+//   pin: 2222,
+// };
+
+// const account3 = {
+//   owner: 'Steven Thomas Williams',
+//   movements: [200, -200, 340, -300, -20, 50, 400, -460],
+//   interestRate: 0.7,
+//   pin: 3333,
+// };
+
+// const account4 = {
+//   owner: 'Sarah Smith',
+//   movements: [430, 1000, 700, 50, 90],
+//   interestRate: 1,
+//   pin: 4444,
+// };
+
+// const accounts = [account1, account2, account3, account4];
+
+// const accountMovements = accounts.map(acc => acc.movements);
+// // console.log(accountMovements);
+// const allMovements = accountMovements.flat();
+// // console.log(allMovements);
+// const overalBalance = allMovements.reduce((acc, mov) => acc + mov, 0);
+// console.log(overalBalance);
+
+// // flat
+// const overalBalance_Chining = accounts
+//   .map(acc => acc.movements)
+//   .flat()
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(`flat method: ${overalBalance_Chining}`);
+
+// // flatMap
+// const overalBalance2 = accounts
+//   .flatMap(acc => acc.movements) // only 1 level deep
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(`flatMap method: ${overalBalance2}`);
+
+/* SORT method - mutate the original array*/
+
+// Strings
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+console.log(owners.sort());
+console.log(owners);
+
+// Numbers
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log(movements);
+
+// if return < 0 -> A(currentValue) before B(nextValue) - keep order
+// if return > 0 -> B before A - switch order
+
+// Ascending
+// movements.sort((currentValue, nextValue) => {
+//   if(currentValue > nextValue)
+//     return 1;
+//   if(nextValue > currentValue)
+//     return -1;
+// });
+movements.sort((a, b) => a - b)
+console.log(movements);
+
+// Descending
+// movements.sort((currentValue, nextValue) => {
+//   if(currentValue > nextValue)
+//     return -1;
+//   if(nextValue > currentValue)
+//     return 1;
+// });
+movements.sort((a, b) => b - a);
+console.log(movements);
