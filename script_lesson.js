@@ -576,64 +576,89 @@ const accounts = [account1, account2, account3, account4];
 // console.log(convertTitleCase('this is a LONG title but not too long'));
 // console.log(convertTitleCase('and here is another title with an EXAMPLE'));
 
-/* Codding challange 4 */
-const dogs = [
-  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
-  { weight: 8, curFood: 200, owners: ['Matilda'] },
-  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
-  { weight: 32, curFood: 340, owners: ['Michael'] },
-];
+// /* Codding challange 4 */
+// const dogs = [
+//   { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+//   { weight: 8, curFood: 200, owners: ['Matilda'] },
+//   { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+//   { weight: 32, curFood: 340, owners: ['Michael'] },
+// ];
 
-// const addRecomendedPortion = function (dogs) {
-//   dogs.forEach(function (dog) {
-//     dog.recomendedPortion = ((dog.weight * dog.curFood) / 1000) * 0.75 * 28;
-//   });
-// };
-// addRecomendedPortion(dogs);
+// // const addRecomendedPortion = function (dogs) {
+// //   dogs.forEach(function (dog) {
+// //     dog.recomendedPortion = ((dog.weight * dog.curFood) / 1000) * 0.75 * 28;
+// //   });
+// // };
+// // addRecomendedPortion(dogs);
+// // console.log(dogs);
+
+// // 1.
+// dogs.forEach(dog => (dog.recFood = Math.trunc(dog.weight ** 0.75 * 28)));
 // console.log(dogs);
 
-// 1.
-dogs.forEach(dog => (dog.recFood = Math.trunc(dog.weight ** 0.75 * 28)));
-console.log(dogs);
+// // 2.
+// const dogSarah = dogs.find(dog => dog.owners.includes('Sarah'));
+// console.log(dogSarah);
+// console.log(
+//   `Sarah's dog is eating too ${
+//     dogSarah.curFood > dogSarah.recFood ? 'much' : 'little'
+//   }`
+// );
 
-// 2.
-const dogSarah = dogs.find(dog => dog.owners.includes('Sarah'));
-console.log(dogSarah);
-console.log(
-  `Sarah's dog is eating too ${
-    dogSarah.curFood > dogSarah.recFood ? 'much' : 'little'
-  }`
-);
+// // 3.
+// const ownersEatTooMuch = dogs
+//   .filter(dog => dog.curFood > dog.recFood)
+//   .flatMap(dog => dog.owners);
+// console.log(ownersEatTooMuch);
 
-// 3.
-const ownersEatTooMuch = dogs
-  .filter(dog => dog.curFood > dog.recFood)
-  .flatMap(dog => dog.owners);
-console.log(ownersEatTooMuch);
+// const ownersEatTooLittle = dogs
+//   .filter(dog => dog.curFood < dog.recFood)
+//   .flatMap(dog => dog.owners);
+// console.log(ownersEatTooLittle);
 
-const ownersEatTooLittle = dogs
-  .filter(dog => dog.curFood < dog.recFood)
-  .flatMap(dog => dog.owners);
-console.log(ownersEatTooLittle);
+// // 4.
+// // "Matilda and Alice and Bob's dogs eat too much!"
+// // "Sarah and John and Michael's dogs eat too little!"
+// console.log(`${ownersEatTooMuch.join(' and ')} dogs eat too much!`);
+// console.log(`${ownersEatTooLittle.join(' and ')} dogs eat too little!`);
 
-// 4.
-// "Matilda and Alice and Bob's dogs eat too much!"
-// "Sarah and John and Michael's dogs eat too little!"
-console.log(`${ownersEatTooMuch.join(' and ')} dogs eat too much!`);
-console.log(`${ownersEatTooLittle.join(' and ')} dogs eat too little!`);
+// // 5.
+// console.log(dogs.some(dog => dog.curFood === dog.recFood));
 
-// 5.
-console.log(dogs.some(dog => dog.curFood === dog.recFood));
+// // 6.
+// // current > (recommended * 0.90) && current < (recommended *  1.10)
+// const checkEatingOkay = dog =>
+//   dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1;
+// console.log(dogs.some(checkEatingOkay));
 
-// 6.
-// current > (recommended * 0.90) && current < (recommended *  1.10)
-const checkEatingOkay = dog =>
-  dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1;
-console.log(dogs.some(checkEatingOkay));
+// // 7.
+// console.log(dogs.filter(checkEatingOkay));
 
-// 7.
-console.log(dogs.filter(checkEatingOkay));
+// // 8.
+// const dogsSorted = dogs.slice().sort((a, b) => a.recFood - b.recFood);
+// console.log(dogsSorted);
 
-// 8.
-const dogsSorted = dogs.slice().sort((a, b) => a.recFood - b.recFood);
-console.log(dogsSorted);
+
+// const calcDaysPassed = (date1, date2) => Math.abs((date2 - date1) / (1000 * 60 * 60 * 24));
+
+// const days1 = calcDaysPassed(new Date(2037, 3, 14), new Date(2037, 3, 4))
+// console.log(days1);
+
+
+// const ingredients = ['olives', 'spinach']
+// const pizzaTimer = setTimeout((ing1, ing2) => console.log(`Here is your pizza with ${ing1} and ${ing2} 🍕`), 3000, ...ingredients);
+// console.log('Waiting...');
+
+// if(ingredients.includes('spinach')) clearTimeout(pizzaTimer);
+
+
+
+// // setTimeout
+// setInterval(function() {
+//   const now = new Date();
+//   let hour = now.getHours();
+//   let minutes = now.getMinutes();
+//   let seconds = now.getSeconds();
+//   console.log(`Current time is ${hour}:${minutes}:${seconds}`);
+// }, 1000);
+
